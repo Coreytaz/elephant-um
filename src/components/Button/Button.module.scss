@@ -1,0 +1,37 @@
+.button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    font-family: var(--second-font-family);
+    border-radius: 15px;
+    font-size: 1.25rem;
+    line-height: 24px;
+    color: inherit;
+    transition: background 0.3s ease-in-out;
+    &.primary {
+        padding: 18px 70px;
+        background: var(--mainAccentColor);
+        box-shadow: 0px 15px 30px rgba(25, 218, 140, 0.25);
+        color: var(--white);
+        font-weight: 700;
+        &:hover {
+            background: var(--mainAccentColor-hover);
+        }
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+    &.ghost {
+        background: #FFFFFF;
+        padding: 10px 50px;
+        font-weight: 400;
+        border: 1px solid var(--font-color);
+        &:hover {
+            background: #9c9c9c;
+        }
+        &:active {
+            background: #868686;
+            transform: translateY(-1px);
+        }
+    }
+}

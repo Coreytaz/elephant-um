@@ -1,0 +1,29 @@
+.hero {
+    &__bg {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &__content {
+        margin-top: 250px;
+        width: 50%;
+    }
+    &__upTitle {
+        text-transform: uppercase;
+        line-height: 166%;
+
+        letter-spacing: 0.08em;
+    }
+    &__title {
+        margin-bottom: 40px;
+    }
+    &__subtitle {
+        margin-bottom: 60px;
+    }
+    &__footer {
+        display: flex;
+        align-items: flex-start;
+        gap: 0 60px;
+    }
+}
