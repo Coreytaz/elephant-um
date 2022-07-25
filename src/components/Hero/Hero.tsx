@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         </P>
         <div className={styles.hero__footer}>
           <Button appearance="primary">Учавствовать</Button>
-          <Timer days={1} hours={9} minutes={43} seconds={0} />
+          <Timer days={1} hours={9} minutes={43} />
         </div>
       </div>
     </section>

@@ -1,19 +1,20 @@
 import React from "react";
 import styles from "./Timer.module.scss";
 import sn from "classnames";
+import { P } from "..";
 
 type TimerProps = {
   days: number;
   hours: number;
   minutes: number;
-  seconds: number;
+  seconds?: number;
 };
 
 const Timer: React.FC<TimerProps> = ({
   days = 0,
   hours = 0,
   minutes = 0,
-  seconds = 0,
+  seconds = 59,
 }) => {
   const [[d, h, m, s], setTime] = React.useState([
     days,
@@ -23,11 +24,6 @@ const Timer: React.FC<TimerProps> = ({
   ]);
   const [over, setOver] = React.useState(false);
   const [point, setPoint] = React.useState(false);
-
-  //   const deadline = new Date(
-  //     Date.now() + 3600 * 1000 * 24 + 3600 * 1000 * 9 + 2580 * 1000
-  //   );
-  //   console.log(deadline);
 
   function declensionNum(num: number, words: string[]) {
     return words[
@@ -64,7 +60,7 @@ const Timer: React.FC<TimerProps> = ({
       <div className={styles.timer__items}>
         <div className={sn(styles.timer__item, styles.timer__days)}>
           <span>{d.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(d, ['день', 'дня', 'дней'])}</span>
+          <span>{declensionNum(d, ["день", "дня", "дней"])}</span>
           <div
             className={sn(styles.point, {
               [styles.opasity]: point === true,
@@ -75,7 +71,8 @@ const Timer: React.FC<TimerProps> = ({
         </div>
         <div className={sn(styles.timer__item, styles.timer__hours)}>
           <span>{h.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(h, ['час', 'часа', 'часов'])}</span>
+          <span>{declensionNum(h, ["час", "часа", "часов"])}</span>
+          <P size="px15">по МСК</P>
           <div
             className={sn(styles.point, {
               [styles.opasity]: point === true,
@@ -86,7 +83,7 @@ const Timer: React.FC<TimerProps> = ({
         </div>
         <div className={sn(styles.timer__item, styles.timer__minutes)}>
           <span>{m.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(m, ['минута', 'минуты', 'минут'])}</span>
+          <span>{declensionNum(m, ["минута", "минуты", "минут"])}</span>
         </div>
       </div>
     </div>
