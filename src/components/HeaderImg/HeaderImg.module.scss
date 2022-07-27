@@ -1,0 +1,139 @@
+@import "../../scss/libs/animation";
+
+.img {
+    max-width: 882px;
+    width: 100%;
+    min-height: 810px;
+    &__space {
+        animation: fadeIn 2s;
+        animation-delay: 0.5s;
+        z-index: 2;
+    }
+    &__spaceStars {
+        position: absolute;
+        top: 17px;
+        right: 40px;
+    }
+    &__spacePlane {
+        position: absolute;
+        top: 319px;
+        right: 30px;
+        animation: PlaneAnim 12s infinite;
+    }
+    &__spaceElephant {
+        position: absolute;
+        top: 215px;
+        right: 156px;
+        animation: ElephantAnim 12s infinite;
+    }
+    &__spaceClock {
+        position: absolute;
+        left: 110px;
+        top: 27%;
+        animation: ClockAnim linear 12s infinite reverse;
+    }
+    &__spaceLamp {
+        position: absolute;
+        left: 50%;
+        bottom: 45%;
+        animation: LampAnim 12s infinite;
+    }
+    &__spacePlanet {
+        &1 {
+            position: absolute;
+            top: 92px;
+            left: 25%;
+            animation: leftDown 12s infinite;
+        }
+        &2 {
+            position: absolute;
+            top: 130px;
+            left: 49%;
+            animation: rightLeft 12s infinite;
+        }
+        &3 {
+            position: absolute;
+            bottom: 36%;
+            left: 37%;
+            animation: rotate45deg 12s infinite;
+        }
+    }
+    &__spaceAtom {
+        position: absolute;
+        top: 17%;
+        left: 10%;
+        animation: AtomAnim 12s infinite;
+    }
+    &__spaceZero {
+        position: absolute;
+        font-family: var(--second-font-family);
+        font-weight: 400;
+        font-size: 1.563rem;
+        line-height: 31px;
+
+        color: #fcc947;
+
+        right: 15%;
+        top: 34%;
+        transform: matrix(0.97, -0.25, 0.25, 0.97, 0, 0);
+    }
+    &__spaceSecond {
+        position: absolute;
+        font-family: var(--second-font-family);
+        font-weight: 400;
+        font-size: 1.563rem;
+        line-height: 31px;
+
+        color: #e075ad;
+
+        right: 5%;
+        top: 27%;
+        transform: matrix(0.87, 0.5, -0.5, 0.87, 0, 0);
+    }
+    &__spaceDivision {
+        position: absolute;
+        right: 37%;
+        top: 22%;
+        animation: plusAnim 12s infinite;
+        animation-delay: 6s;
+    }
+    &__spacePlus {
+        position: absolute;
+        right: 47%;
+        top: 30%;
+        animation: plusAnim 12s infinite;
+    }
+    &__spacePalet {
+        position: absolute;
+        right: 8%;
+        top: 15%;
+        animation: rotate360 12s infinite;
+    }
+    &__spaceRocket {
+        position: absolute;
+        left: 10%;
+        bottom: 40%;
+        animation: RocketAnim 12s infinite;
+    }
+    &__spaceBalloon {
+        position: absolute;
+        left: 40%;
+        bottom: 52%;
+        animation: DownAnim 12s infinite;
+    }
+    &__Gir1 {
+        position: absolute;
+        bottom: 0;
+        right: 25%;
+        z-index: 3;
+    }
+    &__GirlPen {
+        position: absolute;
+        bottom: 14%;
+        right: 45%;
+        z-index: -1;
+        animation: pen 2s;
+        animation-delay: 0.5s;
+        z-index: 2;
+    }
+}

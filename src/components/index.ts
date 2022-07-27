@@ -12,4 +12,5 @@ export { default as Questions } from "./Questions/Questions";
 export { default as QuestionCard } from "./QuestionCard/QuestionCard";
 export { default as Subscribe } from "./Subscribe/Subscribe";
 export { default as Footer } from "./Footer/Footer";
+export { default as HeaderImg } from "./HeaderImg/HeaderImg";
 export { default as P } from "./P/P";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, P, Timer } from "..";
+import { Button, HeaderImg, P, Timer } from "..";
 import styles from "./Hero.module.scss";
 import Bg from "../../assets/hero-bg.jpg";
 
@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   return (
     <section className="hero">
       <div className={styles.hero__bg}>
-        <img src={Bg} alt="bg" />
+        <HeaderImg />
       </div>
       <div className={styles.hero__content}>
         <P className={styles.hero__upTitle} size="px15">
