@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           детского рисунка для всех возрастов
         </P>
         <div className={styles.hero__footer}>
-          <Button appearance="primary">Учавствовать</Button>
+          <Button appearance="primary">Участвовать</Button>
           <Timer days={1} hours={9} minutes={43} />
         </div>
       </div>

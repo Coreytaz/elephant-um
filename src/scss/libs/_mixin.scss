@@ -1,0 +1,24 @@
+@mixin checkBox() {
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1.5px solid var(--mainAccentColor);
+        border-radius: 6px;
+        background: white;
+    }
+
+    input[type="checkbox"]:checked {
+        background-image: url("../../assets/check.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 14px 14px;
+        background-color: var(--mainAccentColor);
+        border: 2px solid var(--mainAccentColor);
+    }
+}
+
+@include checkBox();

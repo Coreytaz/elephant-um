@@ -1,0 +1,65 @@
+.plan {
+    position: relative;
+    margin-top: 100px;
+    &__title {
+        text-align: center;
+        & span {
+            font-size: 2rem;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-underline-offset: 8px;
+            text-decoration-color: var(--additionalAccentColor);
+        }
+    }
+    &__content {
+        position: relative;
+        margin-top: 100px;
+        & img {
+            width: 100%;
+        }
+        &_step ul li {
+            max-width: 246px;
+            position: absolute;
+            &:first-child {
+                left: 130px;
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 39%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &:last-child {
+                bottom: 44px;
+                right: 65px;
+            }
+        }
+    }
+    & .plane {
+        overflow: hidden;
+        width: 120px;
+        height: 90px;
+        position: absolute;
+        z-index: 3;
+        top: 120px;
+        animation-name: fly-plane;
+        animation-duration: 4s;
+    }
+}
+.sky {
+    width: 99vw;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes fly-plane {
+    0% {
+        transform: translate3d(-2000px, 0, 0);
+    }
+    100% {
+        transform: translate3d(2000px, 0, 0);
+    }
+}

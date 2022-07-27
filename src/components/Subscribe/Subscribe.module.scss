@@ -1,0 +1,59 @@
+.subscribe {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url("../../assets/Subscribe.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 81px;
+    background-position: center center;
+    text-align: center;
+    padding: 30px 10px;
+    align-items: center;
+
+    h2 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: white;
+        font-size: 18px;
+    }
+
+    .subscribe__form {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 930px;
+        width: 100%;
+        margin-top: 40px;
+        gap: 30px;
+        @media (max-width: 900px) {
+            justify-content: center;
+        }
+
+        input {
+            max-width: 540px;
+            width: 100%;
+        }
+    }
+
+    .checkbox {
+        display: flex;
+        gap: 0 10px;
+        max-width: 930px;
+        width: 100%;
+        margin-top: 22px;
+
+        p {
+            color: #d6d7dd;
+            text-align: left;
+
+            a {
+                color: white;
+                font-weight: 700;
+            }
+        }
+    }
+}
