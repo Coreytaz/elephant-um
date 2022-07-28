@@ -3,6 +3,7 @@
 @import "./variables";
 @import "./libs/normalize";
 
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, var(--main-font-family);
@@ -20,4 +21,8 @@ code {
   @media (max-width: 1440px) {
     padding: 0 20px;
   }
+}
+
+.overflow {
+  overflow: hidden;
 }

@@ -9,7 +9,7 @@ const QuestionCard: React.FC<QuestionsItemProps> = ({ question, answer }) => {
   return (
     <div className={styles.qaCard}>
       <div className={styles.qaCard__question}>
-        <P>{question}</P>
+        <P size="px20">{question}</P>
         <button
           className={!isOpen ? "" : styles.cross}
           onClick={() => setIsOpen(!isOpen)}

@@ -4,10 +4,17 @@
         position: absolute;
         top: 0;
         right: 0;
+        @media (max-width: 1024px) {
+            display: none;
+        }
     }
     &__content {
         margin-top: 250px;
         width: 50%;
+        @media (max-width: 1024px) {
+            width: 100%;
+            margin-top: 100px;
+        }
     }
     &__upTitle {
         text-transform: uppercase;
@@ -17,6 +24,10 @@
     }
     &__title {
         margin-bottom: 40px;
+        @media (max-width: 576px) {
+            width: 100%;
+            font-size: 2.25rem;
+        }
     }
     &__subtitle {
         margin-bottom: 60px;

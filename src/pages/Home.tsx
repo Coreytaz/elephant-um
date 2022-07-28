@@ -15,16 +15,20 @@ import {
 const Home: React.FC = () => {
   return (
     <>
-      <Header />
-      <Hero />
-      <Description />
-      <Advantage />
+      <div className="container">
+        <Header />
+        <Hero />
+        <Description />
+        <Advantage />
+      </div>
       <Plan />
-      <Sertificate />
-      <PriceAndRegist />
-      <Questions />
-      <Subscribe />
-      <Footer />
+      <div className="container">
+        <Sertificate />
+        <PriceAndRegist />
+        <Questions />
+        <Subscribe />
+        <Footer />
+      </div>
     </>
   );
 };
