@@ -1,4 +1,4 @@
-:root {
+html[data-theme="light"] {
     // Color
     --white: #fff;
     --font-color: #1f1d2a;
@@ -7,7 +7,33 @@
     --mainAccentColor-hover: #10744c;
     --additionalAccentColor: #ff652f;
     --hover-btn-color: #e02d05;
-    --linear-gradient-bg: linear-gradient(326.12deg, #5d77ff 17.95%, #6539c1 89.78%);
+    --linear-gradient-bg1: #5d77ff;
+    --linear-gradient-bg2: #6539c1;
+
+    // Fonts
+
+    --main-font-family: "Nunito", sans-serif;
+    --second-font-family: "Rubik", sans-serif;
+    --font-family-diploma: "Vollkorn", serif;
+
+    --font-size: 16px;
+
+    // Container
+
+    --container-width: 1395px;
+}
+
+html[data-theme="dark"] {
+    // Color
+    --white: #ffffff;
+    --font-color: #df3b3b;
+    --font-color-light: #ff0000;
+    --mainAccentColor: #2314a7;
+    --mainAccentColor-hover: #102774;
+    --additionalAccentColor: #fff12f;
+    --hover-btn-color: #b8e005;
+    --linear-gradient-bg1: #ff14ff;
+    --linear-gradient-bg2: #8a1c8a;
 
     // Fonts
 

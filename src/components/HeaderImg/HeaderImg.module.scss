@@ -137,3 +137,10 @@
         z-index: 2;
     }
 }
+
+.fill_color1 {
+    stop-color: var(--linear-gradient-bg1);
+}
+.fill_color2 {
+    stop-color: var(--linear-gradient-bg2);
+}

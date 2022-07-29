@@ -12,14 +12,16 @@ import {
   Subscribe,
 } from "../components";
 
-type HomeProps = {
-  setTheme: (value: string) => void;
-};
+type HomeDarkProps = {
+    setTheme: (value: string) => void
+}
 
-const Home: React.FC<HomeProps> = ({ setTheme }) => {
+const HomeDark: React.FC<HomeDarkProps> = ({setTheme}) => {
+
   React.useEffect(() => {
-    setTheme("light");
-  }, []);
+    setTheme('dark')
+  }, [])
+
   return (
     <>
       <div className="container">
@@ -42,4 +44,4 @@ const Home: React.FC<HomeProps> = ({ setTheme }) => {
   );
 };
 
-export default Home;
+export default HomeDark;
