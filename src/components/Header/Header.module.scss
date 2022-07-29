@@ -10,6 +10,7 @@
         justify-content: center;
     }
     &__logo {
+        cursor: pointer;
         display: flex;
         align-items: flex-end;
         flex-wrap: nowrap;

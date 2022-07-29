@@ -1,11 +1,22 @@
 @import "../../scss/libs/mixin";
+@import "../../scss/libs/animation";
+
+.overflow {
+    overflow: hidden;
+    position: relative;
+}
 .PriceAndRegist {
+    max-width: var(--container-width);
+    margin: 0 auto;
     margin-top: 250px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 1440px) {
+        padding: 0 20px;
+    }
     @media (max-width: 1187px) {
         justify-content: center;
         gap: 30px 0;
@@ -146,4 +157,38 @@
             box-shadow: 0px 15px 30px rgba(218, 71, 25, 0.25);
         }
     }
+    .regist__plane {
+        position: relative;
+        &1 {
+            z-index: 1;
+        }
+        &2 {
+            z-index: -1;
+            position: absolute;
+            transform: rotate(10deg);
+            height: 77px;
+            left: 50%;
+        }
+    }
+}
+.planeFly {
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+}
+
+.planeOne {
+    animation: planeOne 1s;
+    animation-delay: 2.85s;
+    animation-fill-mode: forwards;
+}
+.planeTwo {
+    animation: planeTwo 1s;
+    animation-delay: 2.85s;
+    animation-fill-mode: forwards;
+}
+
+.planeAnimFly {
+    animation: linear fly-plane-Reg 3s;
+    animation-fill-mode: forwards;
 }

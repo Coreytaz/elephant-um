@@ -12,16 +12,15 @@ const Plan: React.FC = () => {
 
   React.useEffect(() => {
     window.addEventListener("scroll", function (e) {
-      if (show_onscroll()) setAnim(true);
+      if (showPlan_onscroll()) setAnim(true);
     });
   }, []);
 
-  function show_onscroll() {
+  function showPlan_onscroll() {
     let wt = window.scrollY;
     let wh = document.body.clientHeight;
     let eh = PlanRef.current?.offsetHeight;
     let et = PlanRef.current?.offsetTop;
-    console.log(wh - wt, et + eh * 4.5);
 
     if (wh - wt < et + eh * 4.5) return true;
   }

@@ -24,7 +24,9 @@ const Home: React.FC = () => {
       <Plan />
       <div className="container">
         <Sertificate />
-        <PriceAndRegist />
+      </div>
+      <PriceAndRegist />
+      <div className="container">
         <Questions />
         <Subscribe />
         <Footer />
