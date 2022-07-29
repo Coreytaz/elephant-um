@@ -8,7 +8,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/elephant-um/" element={<Home setTheme={setTheme} />} />
+      <Route path="/elephant-um" element={<Home setTheme={setTheme} />} />
       <Route path="/elephant-um/dark" element={<HomeDark setTheme={setTheme} />} />
     </Routes>
   );

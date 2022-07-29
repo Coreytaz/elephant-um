@@ -27,7 +27,6 @@ const PriceAndRegist: React.FC = () => {
     let wh = document.body.clientHeight;
     let eh = PriceAndRegistRef.current?.offsetHeight;
     let et = PriceAndRegistRef.current?.offsetTop;
-    console.log(wh - wt, et + eh * 0.03);
 
     if (wh - wt < et + eh * 0.03) return true;
   }
