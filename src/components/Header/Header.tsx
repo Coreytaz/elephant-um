@@ -16,13 +16,13 @@ const Header: React.FC = () => {
           Слон<span>УМ</span>
         </span>
       </div>
-      {location.pathname === "/elephant-um/dark" && (
-        <Link to="/elephant-um">
+      {location.pathname === "coreytaz.github.io/elephant-um/dark" && (
+        <Link to="coreytaz.github.io/elephant-um">
           <Button appearance="primary">Сменить тему</Button>
         </Link>
       )}
-      {location.pathname === "/elephant-um" && (
-        <Link to="/elephant-um/dark">
+      {location.pathname === "coreytaz.github.io/elephant-um" && (
+        <Link to="coreytaz.github.io/elephant-um/dark">
           <Button appearance="primary">Сменить тему</Button>
         </Link>
       )}
