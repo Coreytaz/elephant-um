@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/elephant-um/static/css/main.59ffe7c2.css",
-    "main.js": "/elephant-um/static/js/main.857631cf.js",
+    "main.js": "/elephant-um/static/js/main.ccc9d5f5.js",
     "static/media/gift.svg": "/elephant-um/static/media/gift.d5777b5738a1d7bf2ce478860690a8d3.svg",
     "static/media/vk.svg": "/elephant-um/static/media/vk.1469e3b513783cb7fddbaba2be20207c.svg",
     "static/media/certification.svg": "/elephant-um/static/media/certification.b18222857adcf944ca5fa0ff4ad2d665.svg",
@@ -40,10 +40,10 @@
     "static/media/tong.svg": "/elephant-um/static/media/tong.62e1178d3938130f4827.svg",
     "static/media/check.svg": "/elephant-um/static/media/check.1ef455351cd1a2c41c9c.svg",
     "main.59ffe7c2.css.map": "/elephant-um/static/css/main.59ffe7c2.css.map",
-    "main.857631cf.js.map": "/elephant-um/static/js/main.857631cf.js.map"
+    "main.ccc9d5f5.js.map": "/elephant-um/static/js/main.ccc9d5f5.js.map"
   },
   "entrypoints": [
     "static/css/main.59ffe7c2.css",
-    "static/js/main.857631cf.js"
+    "static/js/main.ccc9d5f5.js"
   ]
 }
