@@ -2,11 +2,19 @@ import React from "react";
 import style from "./Header.module.scss";
 import Logo from "../../assets/Logo.svg";
 import { Button } from "..";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useTheme } from "../../hook/useTheme";
 
 const Header: React.FC = () => {
-  let location = useLocation();
-  console.log(location);
+  const { theme, setTheme } = useTheme();
+
+  const changeTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   return (
     <header className={style.header}>
@@ -16,16 +24,11 @@ const Header: React.FC = () => {
           Слон<span>УМ</span>
         </span>
       </div>
-      {location.pathname === "coreytaz.github.io/elephant-um/dark" && (
-        <Link to="coreytaz.github.io/elephant-um">
-          <Button appearance="primary">Сменить тему</Button>
-        </Link>
-      )}
-      {location.pathname === "coreytaz.github.io/elephant-um" && (
-        <Link to="coreytaz.github.io/elephant-um/dark">
-          <Button appearance="primary">Сменить тему</Button>
-        </Link>
-      )}
+      <Link to="/elephant-um/">
+        <Button appearance="primary" onClick={() => changeTheme()}>
+          Сменить тему
+        </Button>
+      </Link>
       <div className={style.header__login}>
         <Button appearance="ghost" className={style.header__button}>
           Войти
