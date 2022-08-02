@@ -68,17 +68,17 @@
     animation-duration: 4s;
 }
 
-.animstep1 {
-    animation: step1 4s;
+.animstep {
+    animation: step 4s;
     animation-fill-mode: forwards;
 }
 .animstep2 {
-    animation: step1 4s;
+    animation: step 4s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 .animstep3 {
-    animation: step1 4s;
+    animation: step 4s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 }

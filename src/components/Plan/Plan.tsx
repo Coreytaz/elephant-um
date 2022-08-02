@@ -35,7 +35,7 @@ const Plan: React.FC = () => {
           <ul>
             <li
               className={cn({
-                [style.animstep1]: anim === true,
+                [style.animstep]: anim === true,
               })}
             >
               <P size="px20">
