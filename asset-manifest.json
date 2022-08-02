@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/elephant-um/static/css/main.59ffe7c2.css",
-    "main.js": "/elephant-um/static/js/main.ccc9d5f5.js",
+    "main.css": "/elephant-um/static/css/main.2553d08e.css",
+    "main.js": "/elephant-um/static/js/main.048ad29a.js",
     "static/media/gift.svg": "/elephant-um/static/media/gift.d5777b5738a1d7bf2ce478860690a8d3.svg",
     "static/media/vk.svg": "/elephant-um/static/media/vk.1469e3b513783cb7fddbaba2be20207c.svg",
     "static/media/certification.svg": "/elephant-um/static/media/certification.b18222857adcf944ca5fa0ff4ad2d665.svg",
@@ -39,11 +39,11 @@
     "index.html": "/elephant-um/index.html",
     "static/media/tong.svg": "/elephant-um/static/media/tong.62e1178d3938130f4827.svg",
     "static/media/check.svg": "/elephant-um/static/media/check.1ef455351cd1a2c41c9c.svg",
-    "main.59ffe7c2.css.map": "/elephant-um/static/css/main.59ffe7c2.css.map",
-    "main.ccc9d5f5.js.map": "/elephant-um/static/js/main.ccc9d5f5.js.map"
+    "main.2553d08e.css.map": "/elephant-um/static/css/main.2553d08e.css.map",
+    "main.048ad29a.js.map": "/elephant-um/static/js/main.048ad29a.js.map"
   },
   "entrypoints": [
-    "static/css/main.59ffe7c2.css",
-    "static/js/main.ccc9d5f5.js"
+    "static/css/main.2553d08e.css",
+    "static/js/main.048ad29a.js"
   ]
 }
