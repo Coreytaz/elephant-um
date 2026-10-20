@@ -1,11 +1,5 @@
 .Questions {
-    max-width: 1400px;
-    width: 100%;
-    text-align: center;
-    margin-top: 200px;
-    border-bottom: 1px solid var(--font-color);
-
-    h2 {
-        margin-bottom: 50px;
-    }
+  width: 100%; margin-top: clamp(90px, 12vw, 170px);
+  border-bottom: 1px solid color-mix(in srgb, var(--font-color) 25%, transparent);
+  h2 { margin-bottom: 30px; text-align: center; }
 }

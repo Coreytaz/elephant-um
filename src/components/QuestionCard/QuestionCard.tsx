@@ -1,27 +1,16 @@
-import React from "react";
-import { P } from "..";
-import { QuestionsItemProps } from "../Questions/Questions";
+import P from "../P/P";
 import styles from "./QuestionCard.module.scss";
 
-const QuestionCard: React.FC<QuestionsItemProps> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+type QuestionCardProps = { question: string; answer: string };
 
+export default function QuestionCard({ question, answer }: QuestionCardProps) {
   return (
-    <div className={styles.qaCard}>
-      <div className={styles.qaCard__question}>
-        <P size="px20">{question}</P>
-        <button
-          className={!isOpen ? "" : styles.cross}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span>+</span>
-        </button>
-      </div>
-      <div className={isOpen ? "" : styles.qaCard__answer_close}>
-        <P>{answer}</P>
-      </div>
-    </div>
+    <details className={styles.qaCard}>
+      <summary className={styles.qaCard__question}>
+        <span>{question}</span>
+        <span className={styles.qaCard__toggle} aria-hidden="true">+</span>
+      </summary>
+      <div className={styles.qaCard__answer}><P size="px18">{answer}</P></div>
+    </details>
   );
-};
-
-export default QuestionCard;
+}

@@ -1,93 +1,38 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styles from "./Timer.module.scss";
-import sn from "classnames";
-import { P } from "..";
 
-type TimerProps = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds?: number;
-};
+type TimerProps = { days: number; hours: number; minutes: number; seconds?: number };
 
-const Timer: React.FC<TimerProps> = ({
-  days = 0,
-  hours = 0,
-  minutes = 0,
-  seconds = 59,
-}) => {
-  const [[d, h, m, s], setTime] = React.useState([
-    days,
-    hours,
-    minutes,
-    seconds,
-  ]);
-  const [over, setOver] = React.useState(false);
-  const [point, setPoint] = React.useState(false);
+function declension(num: number, forms: [string, string, string]) {
+  const n = Math.abs(num) % 100;
+  if (n >= 11 && n <= 14) return forms[2];
+  const last = n % 10;
+  return last === 1 ? forms[0] : last >= 2 && last <= 4 ? forms[1] : forms[2];
+}
 
-  function declensionNum(num: number, words: string[]) {
-    return words[
-      num % 100 > 4 && num % 100 < 20
-        ? 2
-        : [2, 0, 1, 1, 1, 2][num % 10 < 5 ? num % 10 : 5]
-    ];
-  }
+export default function Timer({ days, hours, minutes, seconds = 59 }: TimerProps) {
+  const duration = Math.max(0, ((days * 24 + hours) * 60 + minutes) * 60 + seconds);
+  const [remaining, setRemaining] = useState(duration);
 
-  const tick = () => {
-    if (over) return;
+  useEffect(() => {
+    const expiresAt = Date.now() + duration * 1000;
+    const interval = window.setInterval(() => {
+      setRemaining(Math.max(0, Math.ceil((expiresAt - Date.now()) / 1000)));
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, [duration]);
 
-    if (h === 0 && m === 0 && s === 0 && d === 0) {
-      setOver(true);
-    } else if (h === 0 && m === 0) {
-      setTime([d - 1, 23, 59, 59]);
-    } else if (m === 0 && s === 0) {
-      setTime([d, h - 1, 59, 59]);
-    } else if (s === 0) {
-      setTime([d, h, m - 1, 59]);
-    } else {
-      setTime([d, h, m, s - 1]);
-      setPoint(!point);
-    }
-  };
-
-  React.useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
-    return () => clearInterval(timerID);
-  });
+  const d = Math.floor(remaining / 86400);
+  const h = Math.floor(remaining / 3600) % 24;
+  const m = Math.floor(remaining / 60) % 60;
 
   return (
-    <div className={styles.timer}>
-      <div className={styles.timer__items}>
-        <div className={sn(styles.timer__item, styles.timer__days)}>
-          <span>{d.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(d, ["день", "дня", "дней"])}</span>
-          <div
-            className={sn(styles.point, {
-              [styles.opasity]: point === true,
-            })}
-          >
-            :
-          </div>
-        </div>
-        <div className={sn(styles.timer__item, styles.timer__hours)}>
-          <span>{h.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(h, ["час", "часа", "часов"])}</span>
-          <P size="px15">по МСК</P>
-          <div
-            className={sn(styles.point, {
-              [styles.opasity]: point === true,
-            })}
-          >
-            :
-          </div>
-        </div>
-        <div className={sn(styles.timer__item, styles.timer__minutes)}>
-          <span>{m.toString().padStart(2, "0")}</span>
-          <span>{declensionNum(m, ["минута", "минуты", "минут"])}</span>
-        </div>
+    <div className={styles.timer} role="timer" aria-live="off" aria-label={`Обратный отсчёт: ${d} ${declension(d, ["день", "дня", "дней"])}, ${h} ${declension(h, ["час", "часа", "часов"])}, ${m} ${declension(m, ["минута", "минуты", "минут"])}`}>
+      <div className={styles.timer__items} aria-hidden="true">
+        <div className={styles.timer__item}><span>{String(d).padStart(2, "0")}</span><span>{declension(d, ["день", "дня", "дней"])}</span></div>
+        <div className={styles.timer__item}><span>{String(h).padStart(2, "0")}</span><span>{declension(h, ["час", "часа", "часов"])}</span><small>по МСК</small></div>
+        <div className={styles.timer__item}><span>{String(m).padStart(2, "0")}</span><span>{declension(m, ["минута", "минуты", "минут"])}</span></div>
       </div>
     </div>
   );
-};
-
-export default Timer;
+}

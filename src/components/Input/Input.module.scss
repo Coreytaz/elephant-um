@@ -1,11 +1,10 @@
 .input {
-    background: var(--white);
-    border: 1px solid #9fa0a7;
-    border-radius: 15px;
-    padding: 18px 20px;
-    font-family: var(--second-font-family);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #4f5569;
+  width: 100%; min-width: 0; min-height: 55px;
+  background: var(--surface); border: 1px solid #989ca9;
+  border-radius: 14px; padding: 15px 18px;
+  font-family: var(--second-font-family); font-size: 1rem;
+  line-height: 1.45; color: var(--font-color);
+  &::placeholder { color: var(--muted); }
+  &:hover { border-color: var(--mainAccentColor); }
+  &:focus-visible { outline-offset: 2px; }
 }

@@ -1,6 +1,4 @@
-import React from "react";
 import styles from "./HeaderImg.module.scss";
-import Space from "../../assets/Header/space.svg";
 import Stars from "../../assets/Header/space/stars.svg";
 import Plane from "../../assets/Header/space/Plane.svg";
 import Elephant from "../../assets/Header/space/Elephant.svg";
@@ -20,7 +18,7 @@ import Pen from "../../assets/Header/girl/Pen.svg";
 
 const HeaderImg: React.FC = () => {
   return (
-    <div className={styles.img}>
+    <div className={styles.img} aria-hidden="true">
       <div className={styles.img__space}>
         <svg
           width="864"
@@ -47,34 +45,34 @@ const HeaderImg: React.FC = () => {
           </defs>
         </svg>
 
-        <img className={styles.img__spaceStars} src={Stars} alt="Stars" />
-        <img className={styles.img__spacePlane} src={Plane} alt="Plane" />
+        <img className={styles.img__spaceStars} src={Stars} alt="" />
+        <img className={styles.img__spacePlane} src={Plane} alt="" />
         <img
           className={styles.img__spaceElephant}
           src={Elephant}
-          alt="Elephant"
+          alt=""
         />
-        <img className={styles.img__spaceClock} src={Clock} alt="Clock" />
-        <img className={styles.img__spaceLamp} src={Lamp} alt="Lamp" />
-        <img className={styles.img__spacePlanet1} src={Planet1} alt="Planet1" />
-        <img className={styles.img__spacePlanet2} src={Planet2} alt="Planet2" />
-        <img className={styles.img__spacePlanet3} src={Planet3} alt="Planet3" />
-        <img className={styles.img__spaceAtom} src={Atom} alt="Atom" />
-        <p className={styles.img__spaceZero}>0</p>
-        <p className={styles.img__spaceSecond}>1</p>
+        <img className={styles.img__spaceClock} src={Clock} alt="" />
+        <img className={styles.img__spaceLamp} src={Lamp} alt="" />
+        <img className={styles.img__spacePlanet1} src={Planet1} alt="" />
+        <img className={styles.img__spacePlanet2} src={Planet2} alt="" />
+        <img className={styles.img__spacePlanet3} src={Planet3} alt="" />
+        <img className={styles.img__spaceAtom} src={Atom} alt="" />
+        <span className={styles.img__spaceZero}>0</span>
+        <span className={styles.img__spaceSecond}>1</span>
         <img
           className={styles.img__spaceDivision}
           src={division}
-          alt="Segmentation"
+          alt=""
         />
-        <img className={styles.img__spacePlus} src={Plus} alt="Plus" />
-        <img className={styles.img__spacePalet} src={Palet} alt="Palet" />
-        <img className={styles.img__spaceRocket} src={Rocket} alt="Rocket" />
-        <img className={styles.img__spaceBalloon} src={Balloon} alt="Balloon" />
+        <img className={styles.img__spacePlus} src={Plus} alt="" />
+        <img className={styles.img__spacePalet} src={Palet} alt="" />
+        <img className={styles.img__spaceRocket} src={Rocket} alt="" />
+        <img className={styles.img__spaceBalloon} src={Balloon} alt="" />
       </div>
       <div className={styles.img__Girl}>
-        <img className={styles.img__Gir1} src={Girl} alt="Girl" />
-        <img className={styles.img__GirlPen} src={Pen} alt="Pen" />
+        <img className={styles.img__Gir1} src={Girl} alt="" />
+        <img className={styles.img__GirlPen} src={Pen} alt="" />
       </div>
     </div>
   );

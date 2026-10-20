@@ -1,11 +1,14 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-export const useTheme = () => {
-  const [theme, setTheme] = React.useState("light");
+type Theme = "light" | "dark";
 
-  React.useLayoutEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+export function useTheme() {
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#17192c" : "#ffffff");
   }, [theme]);
 
   return { theme, setTheme };
-};
+}

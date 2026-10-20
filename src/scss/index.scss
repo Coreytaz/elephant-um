@@ -1,29 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Rubik:wght@400;500;700&family=Vollkorn:wght@400;500&display=swap");
-
-@import "./variables";
-@import "./libs/normalize";
-
+@use "./variables";
+@use "./libs/normalize";
 
 body {
-  background-color: var(--white);
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, var(--main-font-family);
+  background: var(--page-bg);
+  color: var(--font-color);
+  font-family: var(--main-font-family);
+  font-size: 1rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .2s ease, color .2s ease;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, var(--main-font-family);
-}
-
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  @media (max-width: 1440px) {
-    padding: 0 20px;
-  }
-}
-
-.overflow {
-  overflow: hidden;
-}
+#root { overflow: clip; }
+h1 { font-size: clamp(2.15rem, 3.9vw, 3.45rem); line-height: 1.16; font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 2.7vw, 2.2rem); line-height: 1.28; font-weight: 800; letter-spacing: .01em; }
+p { font-family: var(--second-font-family); }
+a:hover { text-decoration-thickness: 2px; }
+.container { width: min(100% - 40px, var(--container-width)); margin-inline: auto; }
+.skip-link { position: fixed; top: -100px; left: 12px; z-index: 20; padding: 12px 18px; background: var(--surface); color: var(--font-color); border-radius: 10px; }
+.skip-link:focus { top: 12px; }
+section { scroll-margin-top: 26px; }
+@media (max-width: 480px) { .container { width: min(100% - 32px, var(--container-width)); } }

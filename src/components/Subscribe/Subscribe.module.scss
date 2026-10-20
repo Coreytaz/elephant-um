@@ -1,59 +1,16 @@
 .subscribe {
-    margin-top: 200px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-image: url("../../assets/Subscribe.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 81px;
-    background-position: center center;
-    text-align: center;
-    padding: 30px 10px;
-    align-items: center;
-
-    h2 {
-        color: white;
-        margin-bottom: 20px;
-    }
-
-    p {
-        color: white;
-        font-size: 18px;
-    }
-
-    .subscribe__form {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 930px;
-        width: 100%;
-        margin-top: 40px;
-        gap: 30px;
-        @media (max-width: 900px) {
-            justify-content: center;
-        }
-
-        input {
-            max-width: 540px;
-            width: 100%;
-        }
-    }
-
-    .checkbox {
-        display: flex;
-        gap: 0 10px;
-        max-width: 930px;
-        width: 100%;
-        margin-top: 22px;
-
-        p {
-            color: #d6d7dd;
-            text-align: left;
-
-            a {
-                color: white;
-                font-weight: 700;
-            }
-        }
-    }
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%; margin-top: clamp(90px, 13vw, 170px);
+  padding: clamp(35px, 6vw, 72px) clamp(20px, 4vw, 40px);
+  border-radius: clamp(22px, 5vw, 65px);
+  background: linear-gradient(rgba(26,29,74,.25), rgba(26,29,74,.25)), url("../../assets/Subscribe.jpg") center / cover;
+  text-align: center;
+  h2, p { color: #fff; }
+  > p { margin-top: 16px; }
+  &__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px 20px; width: min(100%, 900px); margin-top: 35px; }
+  &__email { display: flex; flex-direction: column; gap: 7px; text-align: left; color: #fff; font-size: .9rem; }
+  .checkbox { grid-column: 1 / -1; display: flex; align-items: start; gap: 10px; text-align: left; color: #fff; font: .9rem/1.55 var(--second-font-family); }
+  .checkbox input { flex: 0 0 22px; width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--mainAccentColor); }
+  .notice { grid-column: 1/-1; padding: 12px 15px; border: 1px solid #fff; border-radius: 12px; text-align: left; }
 }
+@media (max-width: 650px) { .subscribe__form { grid-template-columns: 1fr; } .subscribe .checkbox, .subscribe .notice { grid-column: 1; } }

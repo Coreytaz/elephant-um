@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# СлонУМ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Промосайт конкурса детского рисунка на **React 19**, **TypeScript 7**, **Vite 8** и **SCSS**. Пакетный менеджер — **pnpm 12**. Существующие контент, разметка и дизайн сохранены.
 
-## Available Scripts
+## Требования
 
-In the project directory, you can run:
+- Node.js **22.13.0 или новее** (рекомендуется актуальная LTS-версия).
+- pnpm **12.14.0** (через `corepack enable` + `corepack prepare pnpm@12.14.0 --activate` или [другой официальный способ установки](https://pnpm.io/installation)).
 
-### `npm start`
+## Установка и запуск
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+corepack enable
+corepack prepare pnpm@12.14.0 --activate
+pnpm install
+pnpm dev
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+После запуска Vite откройте адрес, указанный в терминале, с базовым путём `/elephant-um/`, например `http://localhost:5173/elephant-um/`.
 
-### `npm test`
+```bash
+pnpm typecheck     # Проверка типов TypeScript
+pnpm build         # Typecheck + production-сборка в dist/
+pnpm preview       # Локальный просмотр сборки
+pnpm deploy        # Сборка и публикация dist/ через gh-pages
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+В `vite.config.ts` задан `base: "/elephant-um/"`, соответствующий текущему GitHub Pages URL. **При изменении адреса размещения обновите `base`, canonical и og:url**. Статические файлы размещены в `public/`, ссылки в `index.html` используют `%BASE_URL%`.
 
-### `npm run build`
+## Lockfile
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Исходный `package-lock.json` удалён. В среде подготовки проекта отсутствует DNS-доступ к npm registry; поэтому установка пакетов и генерация `pnpm-lock.yaml` **не были возможны**. В репозиторий намеренно не включён фиктивный или устаревший lockfile. Первый `pnpm install` на компьютере с доступом к npm **создаст `pnpm-lock.yaml`**. Сохраните его в системе контроля версий, затем для воспроизводимых установок используйте `pnpm install --frozen-lockfile`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Ограничения исходного сайта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+В проекте отсутствуют серверные API регистрации, авторизации и подписки на рассылку, загрузка рисунка, реальные тексты политики/условий, официальные ссылки соцсетей и фактические ответы на FAQ. После валидации формы честно сообщают о недоступности операции, а не имитируют успешную отправку. Таймер использует исходную длительность, а не подтверждённый дедлайн.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Компоненты находятся в `src/components`, общие стили — `src/scss`, а хук декоративных анимаций — в `src/hook/useInView.ts`.

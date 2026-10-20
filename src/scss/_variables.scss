@@ -1,49 +1,39 @@
+:root,
 html[data-theme="light"] {
-    // Color
-    --white: #fff;
-    --font-color: #1f1d2a;
-    --font-color-light: #4f5569;
-    --mainAccentColor: #14a76c;
-    --mainAccentColor-hover: #10744c;
-    --additionalAccentColor: #ff652f;
-    --hover-btn-color: #e02d05;
-    --linear-gradient-bg1: #5d77ff;
-    --linear-gradient-bg2: #6539c1;
-
-    // Fonts
-
-    --main-font-family: "Nunito", sans-serif;
-    --second-font-family: "Rubik", sans-serif;
-    --font-family-diploma: "Vollkorn", serif;
-
-    --font-size: 16px;
-
-    // Container
-
-    --container-width: 1395px;
+  color-scheme: light;
+  --white: #fff;
+  --page-bg: #fff;
+  --surface: #fff;
+  --font-color: #1f1d2a;
+  --font-color-light: #4f5569;
+  --muted: #626777;
+  --mainAccentColor: #128659;
+  --mainAccentColor-hover: #10744c;
+  --additionalAccentColor: #c34c1b;
+  --accent-link: #be4318;
+  --link-color: #126f4c;
+  --hover-btn-color: #c74219;
+  --linear-gradient-bg1: #5d77ff;
+  --linear-gradient-bg2: #6539c1;
+  --main-font-family: "Nunito", sans-serif;
+  --second-font-family: "Rubik", sans-serif;
+  --font-family-diploma: "Vollkorn", serif;
+  --container-width: 1395px;
 }
 
 html[data-theme="dark"] {
-    // Color
-    --white: #ffffff;
-    --font-color: #df3b3b;
-    --font-color-light: #ff0000;
-    --mainAccentColor: #2314a7;
-    --mainAccentColor-hover: #102774;
-    --additionalAccentColor: #fff12f;
-    --hover-btn-color: #b8e005;
-    --linear-gradient-bg1: #ff14ff;
-    --linear-gradient-bg2: #8a1c8a;
-
-    // Fonts
-
-    --main-font-family: "Nunito", sans-serif;
-    --second-font-family: "Rubik", sans-serif;
-    --font-family-diploma: "Vollkorn", serif;
-
-    --font-size: 16px;
-
-    // Container
-
-    --container-width: 1395px;
+  color-scheme: dark;
+  --page-bg: #17192c;
+  --surface: #25283d;
+  --font-color: #f5f4ff;
+  --font-color-light: #dadbee;
+  --muted: #c8cadc;
+  --mainAccentColor: #10744c;
+  --mainAccentColor-hover: #0b704c;
+  --additionalAccentColor: #b9491b;
+  --accent-link: #ff9260;
+  --link-color: #6bd5a6;
+  --hover-btn-color: #e07442;
+  --linear-gradient-bg1: #6268d9;
+  --linear-gradient-bg2: #47277f;
 }

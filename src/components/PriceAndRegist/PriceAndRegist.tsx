@@ -1,116 +1,74 @@
-import React from "react";
-import style from "./PriceAndRegist.module.scss";
+import { useState, type FormEvent } from "react";
+import cn from "classnames";
+import { useInView } from "../../hook/useInView";
+import styles from "./PriceAndRegist.module.scss";
 import VK from "../../assets/vk2.svg";
 import Ok from "../../assets/ok.svg";
 import Plane from "../../assets/paperPlane.svg";
-import PlaneFly from "../Plan/plane.svg";
-import { Button, Input, P } from "..";
-import cn from "classnames";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import P from "../P/P";
 
-const PriceAndRegist: React.FC = () => {
-  const price = {
-    price: 299,
-    discount: 149,
+const unavailable = "Регистрация пока недоступна: сервер обработки заявок не подключён.";
+
+export default function PriceAndRegist() {
+  const { ref, inView } = useInView<HTMLDivElement>();
+  const [notice, setNotice] = useState("");
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setNotice(unavailable);
   };
 
-  const PriceAndRegistRef = React.useRef<HTMLInputElement>(null!);
-  const [anim, setAnim] = React.useState(false);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", function (e) {
-      if (showPriceAndRegist_onscroll()) setAnim(true);
-    });
-  }, []);
-
-  function showPriceAndRegist_onscroll() {
-    let wt = window.scrollY;
-    let wh = document.body.clientHeight;
-    let eh = PriceAndRegistRef.current?.offsetHeight;
-    let et = PriceAndRegistRef.current?.offsetTop;
-
-    if (wh - wt < et + eh * 0.03) return true;
-  }
+  const share = (provider: "vk" | "ok") => {
+    const page = encodeURIComponent(window.location.href.split("#")[0]);
+    const url = provider === "vk"
+      ? `https://vk.com/share.php?url=${page}`
+      : `https://connect.ok.ru/offer?url=${page}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
-    <div className={style.overflow} ref={PriceAndRegistRef}>
-      <section className={style.PriceAndRegist}>
-        <div className={style.price}>
-          <div className={style.price__top}>
-            <P size="px20">Скидка за репост</P>
-          </div>
-          <div className={style.price__middle}>
+    <div className={styles.overflow} ref={ref}>
+      <section className={styles.PriceAndRegist} id="registration" aria-labelledby="registration-title">
+        <div className={styles.price}>
+          <div className={styles.price__top}><P size="px20">Скидка за репост</P></div>
+          <div className={styles.price__middle}>
             <P size="px20">Стоимость участия</P>
-            <div className={style.price__prices}>
-              <P size="px20">
-                {price.discount}
-                {"₽"}
-              </P>
-              <p>
-                {price.price}
-                {"₽"}
-              </p>
-            </div>
+            <div className={styles.price__prices}><strong>149₽</strong><del>299₽</del></div>
             <P size="px20">При наличии репоста в соцсетях :)</P>
           </div>
-          <div className={style.price__bottom}>
+          <div className={styles.price__bottom}>
             <P size="px20">Получить скидку:</P>
-            <div className={style.price__bottomButtons}>
-              <button className={style.price__buttonVK}>
-                <img src={VK} alt="vk" />
-              </button>
-              <button className={style.price__buttonOK}>
-                <img src={Ok} alt="ok" />
-              </button>
+            <div className={styles.price__bottomButtons}>
+              <button type="button" className={styles.price__buttonVK} onClick={() => share("vk")} aria-label="Поделиться страницей во ВКонтакте"><img src={VK} alt="" /></button>
+              <button type="button" className={styles.price__buttonOK} onClick={() => share("ok")} aria-label="Поделиться страницей в Одноклассниках"><img src={Ok} alt="" /></button>
             </div>
           </div>
         </div>
-        <div className={style.regist}>
-          <h2>Зарегистрируйтесь, чтобы участвовать</h2>
-          <div className={style.regist__inputs}>
-            <Input type="text" placeholder="ФИО ребёнка" />
-            <Input type="text" placeholder="Дата рождения" />
-            <Input type="text" placeholder="Город" />
-            <Input type="text" placeholder="Email" />
-            <Input type="text" placeholder="Пароль" />
+        <form className={styles.regist} onSubmit={handleSubmit}>
+          <h2 id="registration-title">Зарегистрируйтесь, чтобы участвовать</h2>
+          <div className={styles.regist__inputs}>
+            <label>ФИО ребёнка<Input name="childName" type="text" autoComplete="off" placeholder="ФИО ребёнка" maxLength={120} required /></label>
+            <label>Дата рождения<Input name="birthDate" type="date" required max={new Date().toISOString().slice(0, 10)} /></label>
+            <label>Город<Input name="city" type="text" autoComplete="address-level2" placeholder="Город" required maxLength={100} /></label>
+            <label>Email<Input name="email" type="email" autoComplete="email" placeholder="Email" required /></label>
+            <label>Пароль<Input name="password" type="password" autoComplete="new-password" placeholder="Пароль" required minLength={8} /></label>
           </div>
-          <div className={style.checkbox}>
-            <input type="checkbox" />
-            <P size="px15">
-              Отправляя данные, я соглашаюсь с
-              <a href="/"> Условиями конкурса</a> и
-              <a href="/"> Политикой обработки данных</a>
-            </P>
-          </div>
-          <div className={style.regist__btn}>
-            <Button appearance="primary">Участвовать</Button>
-            <div className={style.regist__plane}>
-              <img
-                className={cn(style.regist__plane1, {
-                  [style.planeOne]: anim === true,
-                })}
-                src={Plane}
-                alt="Plane"
-              />
-              <img
-                className={cn(style.regist__plane2, {
-                  [style.planeTwo]: anim === true,
-                })}
-                src={Plane}
-                alt="Plane"
-              />
+          <label className={styles.checkbox}>
+            <input type="checkbox" required />
+            <span>Отправляя данные, я соглашаюсь с Условиями конкурса и Политикой обработки данных</span>
+          </label>
+          <div className={styles.regist__btn}>
+            <Button appearance="primary" type="submit">Участвовать</Button>
+            <div className={styles.regist__plane} aria-hidden="true">
+              <img className={cn(styles.regist__plane1, { [styles.planeOne]: inView })} src={Plane} alt="" />
+              <img className={cn(styles.regist__plane2, { [styles.planeTwo]: inView })} src={Plane} alt="" />
             </div>
           </div>
-        </div>
+          {notice && <p role="status" className={styles.notice}>{notice}</p>}
+        </form>
       </section>
-      <img
-        className={cn(style.planeFly, {
-          [style.planeAnimFly]: anim === true,
-        })}
-        src={PlaneFly}
-        alt="PlaneFly"
-      />
     </div>
   );
-};
-
-export default PriceAndRegist;
+}

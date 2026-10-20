@@ -1,36 +1,8 @@
 .sertificate {
-    margin-top: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 44px;
-    @media (max-width: 1340px) {
-        justify-content: center;
-        gap: 20px 0;
-    }
-
-    &__info {
-        & p {
-            max-width: 600px;
-            color: var(--font-color-light);
-            margin-bottom: 20px;
-        }
-        & h2 {
-            margin-bottom: 27px;
-            & span {
-                font-size: 2rem;
-                text-decoration: underline;
-                text-decoration-style: wavy;
-                text-underline-offset: 8px;
-                text-decoration-color: var(--additionalAccentColor);
-            }
-        }
-    }
-    & img {
-        max-width: 680px;
-        @media (max-width: 768px) {
-            width: 100%;
-        }
-    }
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: clamp(30px, 5vw, 90px);
+  margin-top: clamp(90px, 12vw, 170px);
+  &__info { min-width: 0; p { margin-top: 18px; } h2 span { font-size: inherit; text-decoration: underline wavy var(--additionalAccentColor); text-underline-offset: 8px; } }
+  > img { display: block; width: 100%; height: auto; border-radius: 12px; }
 }
+@media (max-width: 850px) { .sertificate { grid-template-columns: 1fr; } .sertificate > img { max-width: 640px; margin-inline: auto; } }

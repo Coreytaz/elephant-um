@@ -1,52 +1,22 @@
-import React from "react";
-import { QuestionCard } from "..";
+import QuestionCard from "../QuestionCard/QuestionCard";
 import styles from "./Questions.module.scss";
 
-export type QuestionsItemProps = {
-  question: string;
-  answer: string;
-};
+const questions = [
+  "Может ли ребёнок заниматься самостоятельно?",
+  "Как происходит оплата?",
+  "Есть ли гарантии усвоения материала?",
+  "С кем будет общаться мой ребёнок?",
+  "Каковы принципы обучения?",
+  "Сколько раз в неделю можно заниматься?",
+];
 
-const Questions: React.FC = () => {
-  const QuestionsItem = [
-    {
-      question: "Может ли ребёнок заниматься самостоятельно?",
-      answer: "...",
-    },
-    {
-      question: "Как происходит оплата?",
-      answer: "...",
-    },
-    {
-      question: "Есть ли гарантии усвоения материала?",
-      answer: "...",
-    },
-    {
-      question: "С кем будет общаться мой ребёнок?",
-      answer: "...",
-    },
-    {
-      question: "Каковы принципы обучения?",
-      answer: "...",
-    },
-    {
-      question: "Сколько раз в неделю можно заниматься?",
-      answer: "...",
-    },
-  ];
-
+export default function Questions() {
   return (
-    <section className={styles.Questions}>
-      <h2>Вопрос/Ответ</h2>
-      {QuestionsItem.map((item, index) => (
-        <QuestionCard
-          key={index}
-          question={item.question}
-          answer={item.answer}
-        />
+    <section className={styles.Questions} id="questions" aria-labelledby="questions-title">
+      <h2 id="questions-title">Вопрос/Ответ</h2>
+      {questions.map((question) => (
+        <QuestionCard key={question} question={question} answer="Ответ на этот вопрос не опубликован на странице." />
       ))}
     </section>
   );
-};
-
-export default Questions;
+}

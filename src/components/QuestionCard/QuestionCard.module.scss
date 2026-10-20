@@ -1,41 +1,22 @@
 .qaCard {
-    min-height: 110px;
-    border-top: 1px solid var(--font-color);
-    max-width: 1400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-
-    .qaCard__question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 110px;
-
-        button {
-            cursor: pointer;
-            border: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--additionalAccentColor);
-            transition: all 0.2s ease;
-            span {
-                color: var(--white);
-                font-size: 2.5rem;
-                line-height: 30px;
-            }
-            &:hover {
-                transform: rotate(90deg);
-            }
-        }
-    }
-
-    .qaCard__answer_close {
-        display: none;
-    }
-    .cross {
-        transform: rotate(45deg);
-    }
+  border-top: 1px solid color-mix(in srgb, var(--font-color) 25%, transparent);
+  text-align: left;
+  &__question {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; min-height: 95px; padding: 20px 2px;
+    cursor: pointer; list-style: none;
+    font: 500 clamp(1rem, 1.5vw, 1.25rem)/1.5 var(--second-font-family);
+    &::-webkit-details-marker { display: none; }
+    &:hover .qaCard__toggle { background: var(--hover-btn-color); }
+  }
+  &__toggle {
+    display: grid; place-items: center; flex: 0 0 46px;
+    width: 46px; height: 46px;
+    background: var(--additionalAccentColor); color: #fff;
+    border-radius: 50%; font: 500 2rem/1 var(--second-font-family);
+    transition: transform .2s ease, background-color .2s ease;
+  }
+  &[open] .qaCard__toggle { transform: rotate(45deg); }
+  &__answer { padding: 0 64px 25px 2px; }
 }
+@media (max-width: 480px) { .qaCard__question { min-height: 78px; } .qaCard__toggle { flex-basis: 42px; width: 42px; height: 42px; } }

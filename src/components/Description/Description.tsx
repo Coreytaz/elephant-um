@@ -1,8 +1,7 @@
-import React from "react";
-import { P } from "..";
+import P from "../P/P";
 import style from "./Description.module.scss";
 
-const Description: React.FC = () => {
+const Description = () => {
   return (
     <section className={style.description}>
       <P size="px22" className={style.description__title}>

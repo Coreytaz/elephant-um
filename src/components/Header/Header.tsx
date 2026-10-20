@@ -1,41 +1,30 @@
-import React from "react";
-import style from "./Header.module.scss";
+import { useState } from "react";
+import styles from "./Header.module.scss";
 import Logo from "../../assets/Logo.svg";
-import { Button } from "..";
-import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 import { useTheme } from "../../hook/useTheme";
 
-const Header: React.FC = () => {
+export default function Header() {
   const { theme, setTheme } = useTheme();
-
-  const changeTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
+  const [loginNotice, setLoginNotice] = useState(false);
 
   return (
-    <header className={style.header}>
-      <div className={style.header__logo}>
-        <img src={Logo} alt="logo" />
-        <span>
-          Слон<span>УМ</span>
-        </span>
-      </div>
-      <Link to="/elephant-um/">
-        <Button appearance="primary" onClick={() => changeTheme()}>
+    <header className={styles.header}>
+      <a className={styles.header__logo} href="#top" aria-label="СлонУМ — к началу страницы">
+        <img src={Logo} width="53" height="54" alt="" />
+        <span>Слон<span>УМ</span></span>
+      </a>
+      <div className={styles.header__actions}>
+        <Button appearance="primary" type="button" onClick={() => setTheme(theme === "light" ? "dark" : "light")} aria-pressed={theme === "dark"}>
           Сменить тему
         </Button>
-      </Link>
-      <div className={style.header__login}>
-        <Button appearance="ghost" className={style.header__button}>
+        <Button appearance="ghost" type="button" onClick={() => setLoginNotice((value) => !value)} aria-expanded={loginNotice}>
           Войти
         </Button>
       </div>
+      {loginNotice && (
+        <p className={styles.header__notice} role="status">Вход в личный кабинет недоступен: в проекте отсутствует страница авторизации.</p>
+      )}
     </header>
   );
-};
-
-export default Header;
+}

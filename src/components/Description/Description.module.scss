@@ -1,19 +1,8 @@
 .description {
-    margin-top: 200px;
-    margin-bottom: 200px;
-    &__title {
-        text-align: center;
-        margin: 0 auto;
-        max-width: 780px;
-        & b {
-            font-weight: 900;
-            font-family: var(--second-font-family);
-            font-size: 1.375rem;
-        }
-        & span {
-            font-weight: 900;
-            font-size: 1.375rem;
-            color: var(--mainAccentColor);
-        }
-    }
+  margin-block: clamp(78px, 10vw, 180px);
+  &__title {
+    max-width: 830px; margin-inline: auto; text-align: center;
+    b { font-weight: 800; font-size: inherit; }
+    span { font-weight: 800; color: var(--mainAccentColor); font-size: inherit; }
+  }
 }

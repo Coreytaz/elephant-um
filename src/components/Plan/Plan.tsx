@@ -1,80 +1,28 @@
-import React from "react";
-import { P } from "..";
-import style from "./Plan.module.scss";
+import cn from "classnames";
+import { useInView } from "../../hook/useInView";
+import P from "../P/P";
+import styles from "./Plan.module.scss";
 import Sky from "./sky.svg";
 import Step from "./step.svg";
 import Plane from "./plane.svg";
-import cn from "classnames";
 
-const Plan: React.FC = () => {
-  const PlanRef = React.useRef<HTMLInputElement>(null!);
-  const [anim, setAnim] = React.useState(false);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", function (e) {
-      if (showPlan_onscroll()) setAnim(true);
-    });
-  }, []);
-
-  function showPlan_onscroll() {
-    let wt = window.scrollY;
-    let wh = document.body.clientHeight;
-    let eh = PlanRef.current?.offsetHeight;
-    let et = PlanRef.current?.offsetTop;
-
-    if (wh - wt < et + eh * 4.5) return true;
-  }
-
+export default function Plan() {
+  const { ref, inView } = useInView<HTMLElement>();
   return (
-    <section ref={PlanRef} className={style.plan}>
-      <h2 className={style.plan__title}>
-        Пошаговый <span>план</span>
-      </h2>
-      <div className={style.plan__content}>
-        <div className={style.plan__content_step}>
-          <ul>
-            <li
-              className={cn({
-                [style.animstep]: anim === true,
-              })}
-            >
-              <P size="px20">
-                Зарегистрируйтесь на конкурс <a href="#">Здесь</a>
-              </P>
-            </li>
-            <li
-              className={cn({
-                [style.animstep2]: anim === true,
-              })}
-            >
-              <P size="px20">
-                Выполните все
-                <br /> условия конкурса
-              </P>
-            </li>
-            <li
-              className={cn({
-                [style.animstep3]: anim === true,
-              })}
-            >
-              <P size="px20">
-                Загрузите рисунок <a href="#">Здесь</a> или в Личном кабинете
-              </P>
-            </li>
-          </ul>
+    <section ref={ref} className={styles.plan} id="how-it-works" aria-labelledby="plan-title">
+      <div className="container">
+        <h2 className={styles.plan__title} id="plan-title">Пошаговый <span>план</span></h2>
+        <div className={styles.plan__content}>
+          <ol className={styles.plan__steps}>
+            <li><P size="px20">Зарегистрируйтесь на конкурс <a href="#registration">Здесь</a></P></li>
+            <li><P size="px20">Выполните все условия конкурса</P></li>
+            <li><P size="px20">Загрузите рисунок <span className={styles.missingLink}>Здесь</span> или в Личном кабинете</P></li>
+          </ol>
+          <img className={styles.plan__route} src={Step} alt="" loading="lazy" decoding="async" width="1373" height="499" />
         </div>
-        <img src={Step} alt="Step" />
       </div>
-      <img
-        className={cn(style.plane, {
-          [style.animPlan]: anim === true,
-        })}
-        src={Plane}
-        alt="plane"
-      />
-      <img className={style.sky} src={Sky} alt="sky" />
+      <img className={cn(styles.plane, { [styles.animPlan]: inView })} src={Plane} alt="" aria-hidden="true" loading="lazy" />
+      <img className={styles.sky} src={Sky} alt="" aria-hidden="true" loading="lazy" />
     </section>
   );
-};
-
-export default Plan;
+}
