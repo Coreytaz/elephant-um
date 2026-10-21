@@ -25,7 +25,7 @@ pnpm preview       # Локальный просмотр сборки
 pnpm deploy        # Сборка и публикация dist/ через gh-pages
 ```
 
-В `vite.config.ts` задан `base: "/"`: сайт размещается в корне домена. **При изменении адреса размещения обновите `base`, canonical и og:url**. Статические файлы размещены в `public/`, ссылки в `index.html` используют `%BASE_URL%`.
+В `vite.config.ts` задан `base: "/elephant-um/"`: сайт размещается по адресу https://coreytaz.github.io/elephant-um/. **При изменении адреса размещения обновите `base`, canonical и og:url**. Статические файлы размещены в `public/`, ссылки в `index.html` используют `%BASE_URL%`.
 
 ## Lockfile
 
