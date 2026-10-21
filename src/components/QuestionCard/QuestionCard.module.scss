@@ -1,5 +1,5 @@
 .qaCard {
-  border-top: 1px solid color-mix(in srgb, var(--font-color) 25%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--font-color) 14%, transparent);
   text-align: left;
   &__question {
     display: flex; align-items: center; justify-content: space-between;
@@ -20,3 +20,11 @@
   &__answer { padding: 0 64px 25px 2px; }
 }
 @media (max-width: 480px) { .qaCard__question { min-height: 78px; } .qaCard__toggle { flex-basis: 42px; width: 42px; height: 42px; } }
+
+@keyframes answerIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+:global(html:not([data-motion="off"])) {
+  .qaCard[open] .qaCard__answer { animation: answerIn .25s ease-out; }
+}

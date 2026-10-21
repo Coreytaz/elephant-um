@@ -6,9 +6,9 @@ import styles from "./Hero.module.scss";
 
 export default function Hero() {
   const scrollToRegistration = () => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motionEnabled = document.documentElement.dataset.motion === "on";
     document.getElementById("registration")?.scrollIntoView({
-      behavior: prefersReducedMotion ? "auto" : "smooth",
+      behavior: motionEnabled ? "smooth" : "auto",
     });
   };
 
@@ -17,9 +17,9 @@ export default function Hero() {
       <div className={styles.hero__bg} aria-hidden="true"><HeaderImg /></div>
       <div className={styles.hero__content}>
         <P className={styles.hero__upTitle} size="px15">От компании СлонУМ</P>
-        <h1 className={styles.hero__title} id="hero-title">Всероссийский конкурс Детского рисунка</h1>
+        <h1 className={styles.hero__title} id="hero-title">Всероссийский конкурс детского рисунка</h1>
         <P className={styles.hero__subtitle} size="px18">
-          Учавствуйте в конкурсе и получайте призы в различных номинациях
+          Участвуйте в конкурсе и получайте призы в различных номинациях
           детского рисунка для всех возрастов
         </P>
         <div className={styles.hero__footer}>

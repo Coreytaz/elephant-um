@@ -6,7 +6,7 @@ export function useInView<T extends HTMLElement>() {
 
   useEffect(() => {
     const element = ref.current;
-    if (!element || typeof IntersectionObserver === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!element || typeof IntersectionObserver === "undefined") {
       setInView(true);
       return;
     }

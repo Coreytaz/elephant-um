@@ -11,12 +11,12 @@
   &__steps li::before { content: counter(plan) "."; position: absolute; left: -18px; top: 0; color: var(--additionalAccentColor); font: 800 1.25rem var(--second-font-family); }
   &__steps li:first-child { left: 22%; top: -4%; }
   &__steps li:nth-child(2) { left: 49%; top: 35%; }
-  &__steps li:last-child { right: 9%; bottom: 6%; }
+  &__steps li:last-child { right: 9%; top: 100%; }
   .missingLink { color: var(--muted); text-decoration: underline dotted; text-underline-offset: 3px; }
   .plane { position: absolute; top: 30px; left: 0; z-index: 1; width: 100px; opacity: 0; pointer-events: none; }
   .sky { position: absolute; top: 0; left: 0; z-index: -1; width: 100%; pointer-events: none; }
 }
-.animPlan { animation: fly-plane 4s linear forwards; }
+.animPlan { animation: fly-plane 7s ease-in-out infinite both; }
 @media (max-width: 920px) {
   .plan__content { min-height: 0; margin-top: 40px; }
   .plan__route { display: none; }
@@ -26,3 +26,4 @@
   .plan .plane { display: none; }
 }
 @media (max-width: 640px) { .plan__steps { grid-template-columns: 1fr; } }
+:global(html[data-motion="off"]) .plan .plane { display: none; }

@@ -3,69 +3,69 @@
 .img {
     position: relative;
     width: min(58vw, 780px);
-    height: min(53vw, 730px);
-    min-height: 450px;
+    aspect-ratio: 780 / 730;
+    pointer-events: none;
     &__space > svg { display: block; width: 100%; height: auto; }
     &__space img { max-width: 24%; }
     &__space {
-        animation: fadeIn 2s;
-        animation-delay: 0.5s;
+        animation: fadeIn 900ms 120ms both;
         z-index: 2;
     }
     &__spaceStars {
         position: absolute;
-        top: 17px;
-        right: 40px;
+        top: 2.3%;
+        right: 5.1%;
     }
     &__spacePlane {
         position: absolute;
-        top: 319px;
-        right: 30px;
-        animation: PlaneAnim 12s infinite;
+        top: 43.7%;
+        right: 3.8%;
+        animation: PlaneAnim 5s ease-in-out -1s infinite;
     }
     &__spaceElephant {
         position: absolute;
-        top: 215px;
-        right: 156px;
-        animation: ElephantAnim 12s infinite;
+        top: 29.5%;
+        right: 20%;
+        animation: ElephantAnim 5s ease-in-out -1s infinite;
     }
     &__spaceClock {
         position: absolute;
-        left: 110px;
+        left: 14.1%;
         top: 27%;
-        animation: ClockAnim linear 12s infinite reverse;
+        animation: ClockAnim 4s ease-in-out infinite;
     }
     &__spaceLamp {
         position: absolute;
         left: 50%;
         bottom: 45%;
-        animation: LampAnim 12s infinite;
+        transform-origin: 50% 80%;
+        animation: LampAnim 4s ease-in-out -2s infinite;
     }
     &__spacePlanet {
         &1 {
             position: absolute;
-            top: 92px;
+            top: 12.6%;
             left: 25%;
-            animation: leftDown 12s infinite;
+            animation: leftDown 6s ease-in-out -2s infinite;
         }
         &2 {
             position: absolute;
-            top: 130px;
+            top: 17.8%;
             left: 49%;
-            animation: rightLeft 12s infinite;
+            animation: rightLeft 5s ease-in-out -1s infinite;
         }
         &3 {
             position: absolute;
             bottom: 36%;
             left: 37%;
-            animation: rotate45deg 12s infinite;
+            animation: rotate45deg 7s ease-in-out -3s infinite;
         }
     }
     &__spaceAtom {
         position: absolute;
         top: 17%;
         left: 10%;
-        animation: AtomAnim 12s infinite;
+        animation: AtomAnim 6s ease-in-out -2s infinite;
     }
     &__spaceZero {
         position: absolute;
@@ -97,32 +97,32 @@
         position: absolute;
         right: 37%;
         top: 22%;
-        animation: plusAnim 12s infinite;
-        animation-delay: 6s;
+        animation: plusAnim 4s ease-in-out infinite;
+        animation-delay: -2s;
     }
     &__spacePlus {
         position: absolute;
         right: 47%;
         top: 30%;
-        animation: plusAnim 12s infinite;
+        animation: plusAnim 4s ease-in-out infinite;
     }
     &__spacePalet {
         position: absolute;
         right: 8%;
         top: 15%;
-        animation: rotate360 12s infinite;
+        animation: rotate360 16s linear infinite;
     }
     &__spaceRocket {
         position: absolute;
         left: 10%;
         bottom: 40%;
-        animation: RocketAnim 12s infinite;
+        animation: RocketAnim 4s ease-in-out -1s infinite;
     }
     &__spaceBalloon {
         position: absolute;
         left: 40%;
         bottom: 52%;
-        animation: DownAnim 12s infinite;
+        animation: DownAnim 5s ease-in-out -2s infinite;
     }
     &__Girl { position: absolute; inset: 0; pointer-events: none; }
     &__Gir1 {
@@ -137,9 +137,8 @@
         bottom: 14%;
         right: 45%;
         width: 13%;
-        z-index: -1;
-        animation: pen 2s;
-        animation-delay: 0.5s;
+        transform-origin: 50% 80%;
+        animation: pen 2.5s ease-in-out -1s infinite;
         z-index: 2;
     }
 }
@@ -150,3 +149,9 @@
 .fill_color2 {
     stop-color: var(--linear-gradient-bg2);
 }
+
+:global(html[data-motion="off"]) {
+    .img__space, .img img { animation: none; }
+}
+
+@media (max-width: 1050px) { .img { width: 100%; } }

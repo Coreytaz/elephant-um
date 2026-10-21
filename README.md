@@ -16,7 +16,7 @@ pnpm install
 pnpm dev
 ```
 
-После запуска Vite откройте адрес, указанный в терминале, с базовым путём `/elephant-um/`, например `http://localhost:5173/elephant-um/`.
+После запуска Vite откройте адрес, указанный в терминале, например `http://localhost:5173/`.
 
 ```bash
 pnpm typecheck     # Проверка типов TypeScript
@@ -25,7 +25,7 @@ pnpm preview       # Локальный просмотр сборки
 pnpm deploy        # Сборка и публикация dist/ через gh-pages
 ```
 
-В `vite.config.ts` задан `base: "/elephant-um/"`, соответствующий текущему GitHub Pages URL. **При изменении адреса размещения обновите `base`, canonical и og:url**. Статические файлы размещены в `public/`, ссылки в `index.html` используют `%BASE_URL%`.
+В `vite.config.ts` задан `base: "/"`: сайт размещается в корне домена. **При изменении адреса размещения обновите `base`, canonical и og:url**. Статические файлы размещены в `public/`, ссылки в `index.html` используют `%BASE_URL%`.
 
 ## Lockfile
 

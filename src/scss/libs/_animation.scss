@@ -1,259 +1,73 @@
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes ElephantAnim {
-    0% {
-        transform: translate(0, 0) rotate(0);
-    }
-    50% {
-        transform: translate(10px, 0) rotate(30deg);
-    }
-    100% {
-        transform: translate(0, 0) rotate(0);
-    }
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-24px) rotate(12deg); }
 }
-
 @keyframes LampAnim {
-    0% {
-        transform: rotate(0);
-    }
-    10% {
-        transform: rotate(40deg);
-    }
-    40% {
-        transform: rotate(40deg);
-    }
-    69% {
-        transform: rotate(-5deg);
-    }
-    85% {
-        transform: rotate(-25deg);
-    }
-    100% {
-        transform: rotate(0);
-    }
+  0%, 100% { transform: rotate(-16deg); }
+  50% { transform: rotate(18deg); }
 }
-
 @keyframes RocketAnim {
-    0% {
-        transform: translate(0, 0);
-    }
-    67% {
-        transform: translate(0, 70px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(16px, -42px); }
 }
-
 @keyframes ClockAnim {
-    0% {
-        transform: scale(0.7) rotate(0deg);
-    }
-
-    50% {
-        transform: scale(1) rotate(180deg);
-    }
-
-    100% {
-        transform: scale(0.7) rotate(360deg);
-    }
+  0%, 100% { transform: rotate(-18deg); }
+  50% { transform: rotate(18deg); }
 }
-
 @keyframes PlaneAnim {
-    0% {
-        transform: scale(0.5) rotate(45deg);
-    }
-
-    50% {
-        transform: scale(1) rotate(0);
-    }
-
-    100% {
-        transform: scale(0.5) rotate(45deg);
-    }
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-26px) rotate(8deg); }
 }
-
 @keyframes leftDown {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(-50px, 18px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-28px, 16px); }
 }
-
 @keyframes rightLeft {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(-50px, 0);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-30px); }
 }
 @keyframes DownAnim {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(0, -50px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
 }
-
 @keyframes rotate45deg {
-    0% {
-        transform: rotate(0);
-    }
-
-    50% {
-        transform: rotate(-45deg);
-    }
-
-    100% {
-        transform: rotate(0);
-    }
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
 }
-
 @keyframes rotate360 {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-
 @keyframes plusAnim {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    30% {
-        opacity: 0;
-        transform: scale(1.35);
-    }
-
-    60% {
-        opacity: 0;
-        transform: scale(1.35);
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+  0%, 100% { transform: scale(1); opacity: .85; }
+  50% { transform: scale(1.12); opacity: .4; }
 }
-
 @keyframes AtomAnim {
-    0% {
-        transform: rotate(0deg) scale(0);
-    }
-
-    50% {
-        transform: rotate(30deg) scale(1);
-    }
-
-    100% {
-        transform: rotate(0deg) scale(0);
-    }
+  0%, 100% { transform: rotate(-10deg) scale(.94); }
+  50% { transform: rotate(15deg) scale(1); }
 }
-
 @keyframes pen {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    25% {
-        transform: translate(10px, 0) rotate(60deg);
-    }
-
-    50% {
-        transform: translate(0, -5px) rotate(-20deg);
-    }
-
-    75% {
-        transform: translate(16px, -5px) rotate(-10deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  35% { transform: translate(6px, -6px) rotate(16deg); }
+  65% { transform: translate(-4px, -2px) rotate(-10deg); }
 }
-
 @keyframes fly-plane {
-    0% {
-        transform: translate(-100%, 0);
-        opacity: 1;
-    }
-    10% {
-        transform: translate(250px, 20px);
-    }
-    30% {
-        transform: translate(700px, 200px) rotate(30deg);
-    }
-    50% {
-        transform: translate(1200px, 400px);
-    }
-    60% {
-        transform: translate(1400px, 440px);
-    }
-    70% {
-        transform: translate(1500px, 400px) rotate(-20deg);
-    }
-    90% {
-        transform: translate(2000px, 200px) rotate(-20deg);
-    }
-    100% {
-        transform: translate(2600px, 140px);
-        opacity: 1;
-    }
+  0% { left: 0; top: 0; opacity: 0; transform: rotate(8deg); }
+  8% { opacity: 1; }
+  35% { left: 30%; top: 20%; transform: rotate(20deg); }
+  65% { left: 60%; top: 65%; transform: rotate(12deg); }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 100px); top: 75%; opacity: 0; transform: rotate(-12deg); }
 }
-
 @keyframes planeOne {
-    0% {
-        transform: translate(0, 0) rotate(0);
-    }
-    90% {
-        transform: translate(-20px, 0) rotate(-5deg);
-    }
-    100% {
-        transform: translate(-20px, 0) rotate(-5deg);
-    }
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(-20px, -5px) rotate(-5deg); }
 }
 @keyframes planeTwo {
-    0% {
-        transform: translate(0, 0) rotate(0);
-    }
-    90% {
-        transform: translate(-20px, 0) rotate(20deg);
-    }
-    100% {
-        transform: translate(-20px, 0) rotate(20deg);
-    }
+  from { transform: translate(0, 0) rotate(10deg); }
+  to { transform: translate(-12px, 8px) rotate(20deg); }
 }

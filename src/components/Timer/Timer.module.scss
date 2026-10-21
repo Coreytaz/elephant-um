@@ -3,13 +3,39 @@
 .timer__item {
   display: flex; flex-direction: column; align-items: center; gap: 5px;
   min-width: 0; text-align: center;
-  > span:first-child {
-    display: block; min-width: clamp(52px, 6vw, 68px); padding: 9px 8px;
+  .timer__number {
+    display: grid; place-items: center; overflow: hidden;
+    min-width: clamp(52px, 6vw, 68px); padding: 9px 8px;
     border-radius: 15px; background: var(--surface);
-    box-shadow: 0 5px 25px rgba(107, 95, 139, .18);
+    box-shadow: 0 5px 22px rgba(107, 95, 139, .10);
+    font-variant-numeric: tabular-nums;
+    border: 1px solid color-mix(in srgb, var(--font-color) 6%, transparent);
     font: 700 clamp(1.45rem, 3vw, 2rem)/1.35 var(--second-font-family);
     color: var(--additionalAccentColor);
+    animation: timerPulse 3.6s ease-in-out infinite;
   }
   > span:nth-child(2) { font-size: .875rem; color: var(--font-color); }
   small { font-size: .7rem; color: var(--muted); }
+}
+
+.timer__digit {
+  display: block; grid-area: 1 / 1;
+  animation: digitIn .5s cubic-bezier(.22, 1, .36, 1) both;
+}
+.timer__digitLeaving { animation: digitOut .5s cubic-bezier(.22, 1, .36, 1) both; }
+.timer__item:nth-child(2) .timer__number { animation-delay: .4s; }
+.timer__item:nth-child(3) .timer__number { animation-delay: .8s; }
+.timer__item:nth-child(4) .timer__number { animation-delay: 1.2s; }
+
+@keyframes digitIn {
+  from { opacity: 0; transform: translateY(110%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes digitOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-110%); }
+}
+@keyframes timerPulse {
+  0%, 70%, 100% { transform: translateY(0); border-color: color-mix(in srgb, var(--font-color) 6%, transparent); }
+  35% { transform: translateY(-3px); border-color: color-mix(in srgb, var(--additionalAccentColor) 45%, transparent); }
 }

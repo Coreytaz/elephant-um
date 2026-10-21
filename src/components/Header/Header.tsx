@@ -3,9 +3,11 @@ import styles from "./Header.module.scss";
 import Logo from "../../assets/Logo.svg";
 import Button from "../Button/Button";
 import { useTheme } from "../../hook/useTheme";
+import { useMotion } from "../../hook/useMotion";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
+  const { motionEnabled, toggleMotion } = useMotion();
   const [loginNotice, setLoginNotice] = useState(false);
 
   return (
@@ -15,6 +17,9 @@ export default function Header() {
         <span>Слон<span>УМ</span></span>
       </a>
       <div className={styles.header__actions}>
+        <Button appearance="ghost" type="button" onClick={toggleMotion} aria-pressed={motionEnabled} aria-label="Анимации">
+          {motionEnabled ? "Пауза анимаций" : "Включить анимации"}
+        </Button>
         <Button appearance="primary" type="button" onClick={() => setTheme(theme === "light" ? "dark" : "light")} aria-pressed={theme === "dark"}>
           Сменить тему
         </Button>

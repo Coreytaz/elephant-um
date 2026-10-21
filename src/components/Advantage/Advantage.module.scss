@@ -5,8 +5,10 @@
   &__item {
     display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
     min-width: 0; padding: clamp(20px, 2.5vw, 34px);
-    background: var(--surface); border-radius: 17px;
-    box-shadow: 0 5px 30px rgba(106, 98, 138, .16); text-align: left;
+    background: var(--surface); border-radius: 22px;
+    border: 1px solid color-mix(in srgb, var(--font-color) 7%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 6px 24px rgba(106, 98, 138, .09); text-align: left;
     img { width: 100px; height: 100px; object-fit: contain; }
     p { margin-top: auto; }
     a { color: var(--accent-link); }
@@ -20,3 +22,7 @@
   .advantage__item img { flex: 0 0 72px; width: 72px; height: 72px; }
 }
 @media (max-width: 350px) { .advantage__item { flex-direction: column; align-items: flex-start; } }
+
+@media (hover: hover) {
+  :global(html:not([data-motion="off"])) .advantage__item:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(106, 98, 138, .14); }
+}
